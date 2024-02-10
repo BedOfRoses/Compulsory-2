@@ -15,26 +15,6 @@ int randomizer(int x);
 //	FOR PART 1, THE MAINFRAME LOGIN
 //
 
-//	the username and password
-const std::string userName = "Meisam";
-const std::string password = "theChosenOne";
-
-//	user input
-std::string userName_input{};
-std::string userPassword_input{};
-
-//	Attempts
-int loginCounter{};		// Counts for each attempt, if it is equal to 3 then the program will exit.
-int passwordLoginCounter{};
-
-//Bools for login
-bool userNameCorrect = true;	//starts in a while loop of the username
-bool passwordCorrect = false;	// is set to true if username is correct
-
-//functions
-void mainframe();		//username
-void loginMainFrame();	 //password
-
 
 
 
@@ -53,12 +33,10 @@ struct Deck
 
 	void printCard()
 	{
-		std::cout << face << " of " << court << " and has the value of " << cardValue;
-		//example		" 2		   of	  spades
+		std::cout << face << " of " << court << " and has the value of " << cardValue; //example		" 2		   of	  spades
 	}
 
-}card //an object for each individual card
-;
+}card;//an object for each individual card
 
 
 struct Players
@@ -73,10 +51,18 @@ struct Players
 std::vector <Deck> cards{}; //Stores each cards from the loop 52 in total
 
 
-void makeDeck();
+void makeDeck(std::vector<Deck>& cards);
 void shuffleDeck();
 void gaming(std::vector<Deck>& cards);
+void initializeGame();
+void exitGame();
+void handleDraw();
+void handleHouseWin();
+void handlePlayerWin();
+void stopPlaying();
+void takeCard();
 
+void askForPlayAgain();
 char playerStandOrHit{}; //if a player wants to take a card or not.
 
 int playersMoney{};		// humanPlayer.balance and starting balance is 100
